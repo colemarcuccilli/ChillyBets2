@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master # Trigger deployment on push to master branch
+      - main # Trigger deployment on push to main branch
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
