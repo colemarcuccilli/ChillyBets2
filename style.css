@@ -331,9 +331,8 @@ body.loaded {
 
 .partners-section {
     padding: 40px 0;
-    /* Reduced padding */
-    background-color: #ffffff;
-    /* White background */
+    background-color: #f5faff;
+    /* Consistent off-white */
     border-top: 1px solid #d1eaf4;
     border-bottom: 1px solid #d1eaf4;
 }
@@ -433,24 +432,19 @@ a.partner-logo[href*="fndl.co"] img {
 
 .success-metrics-section {
     padding: 60px 20px;
-    background-color: #f8fbfd;
-    /* Very light off-white */
+    background-color: #f5faff;
+    /* Consistent off-white */
     text-align: center;
-    background-color: #f8fbfd;
-    /* Very light off-white */
 }
 
 
 /* Winning Tickets Section */
 
 .winning-tickets-section {
-    padding: 60px 0;
-    /* Remove side padding */
-    background-color: #ffffff;
+    padding: 80px 0;
+    background-color: #f5faff;
+    /* Consistent off-white */
     overflow: hidden;
-    /* Important for horizontal scroll */
-    background-color: #ffffff;
-    /* Very light off-white */
 }
 
 .winning-tickets-section .section-title {
@@ -499,11 +493,9 @@ a.partner-logo[href*="fndl.co"] img {
 
 .research-teamwork-section {
     padding: 80px 20px;
-    background-color: #e0f2f7;
-    /* Back to light icy blue */
+    background-color: #f5faff;
+    /* Consistent off-white */
     text-align: center;
-    background-color: #e0f2f7;
-    /* Back to light icy blue */
 }
 
 .research-text {
@@ -567,10 +559,9 @@ a.partner-logo[href*="fndl.co"] img {
 
 .pricing-plans-section {
     padding: 80px 20px;
-    background-color: #ffffff;
+    background-color: #f5faff;
+    /* Consistent off-white */
     text-align: center;
-    background-color: #ffffff;
-    /* Very light off-white */
 }
 
 .section-logo {
@@ -775,10 +766,9 @@ a.partner-logo[href*="fndl.co"] img {
 
 .community-reviews-section {
     padding: 80px 0;
-    background-color: #f8fbfd;
+    background-color: #f5faff;
+    /* Consistent off-white */
     overflow: hidden;
-    background-color: #f8fbfd;
-    /* Very light off-white */
 }
 
 .community-reviews-section .container {
@@ -1002,41 +992,6 @@ main {
     background-size: cover;
     background-position: center;
     padding: 80px 20px;
-}
-
-
-/* Need to explicitly set backgrounds for sections involved */
-
-.success-metrics-section {
-    background-color: #f8fbfd;
-}
-
-.winning-tickets-section {
-    background-color: #ffffff;
-}
-
-.research-teamwork-section {
-    background-color: #e0f2f7;
-}
-
-.pricing-plans-section {
-    background-color: #ffffff;
-}
-
-.community-reviews-section {
-    background-color: #f8fbfd;
-}
-
-.community-reviews-section {
-    background-color: #f8fbfd;
-}
-
-.community-reviews-section {
-    background-color: #f8fbfd;
-}
-
-.community-reviews-section {
-    background-color: #f8fbfd;
 }
 
 
