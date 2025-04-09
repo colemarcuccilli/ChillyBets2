@@ -1,0 +1,1080 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    /* Apply border-box globally */
+}
+
+html,
+body {
+    overflow-x: hidden;
+    /* Explicitly prevent horizontal scroll */
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Example modern font */
+    background-color: #e0f2f7;
+    /* Light icy blue */
+    color: #132a4a;
+    /* Dark blue */
+    overflow: clip;
+    /* Use clip instead of hidden for better scroll compatibility */
+}
+
+body.loaded {
+    /* overflow-y: auto; REMOVED - body now uses overflow: clip */
+}
+
+
+/* Loading Screen */
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #132a4a;
+    /* Dark blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Highest z-index */
+    pointer-events: none;
+    /* Allow interaction with page behind once hidden */
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    /* Fade out transition */
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-logo {
+    max-width: 200px;
+    /* Adjust size as needed */
+    width: 50%;
+    opacity: 0;
+    /* Start hidden for animation */
+    /* GSAP will handle animation */
+}
+
+
+/* Utility Classes (can add more as needed) */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #00a5ff;
+    /* Bright blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #007acc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 165, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: #ff3366;
+    /* Bright pink */
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #e62e5d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 51, 102, 0.3);
+}
+
+.highlight-pink {
+    color: #ff3366;
+}
+
+.highlight-blue {
+    color: #00a5ff;
+}
+
+
+/* Header/Navbar */
+
+.header {
+    padding: 2px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    min-height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 45px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 35px;
+    margin-right: 8px;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #132a4a;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #00a5ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+    color: #00a5ff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+}
+
+
+/* Mobile Menu Toggle - Basic, needs JS */
+
+.mobile-menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #132a4a;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Hero Section */
+
+.hero {
+    min-height: 55vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #e0f2f7 0%, #b3e5fc 100%);
+    /* Subtle gradient */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    /* Add a subtle glow */
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Wrapper for title lines to handle overflow */
+
+.title-line-wrapper {
+    display: block;
+    /* Each line on its own row */
+    overflow: hidden;
+    /* Clip the text sliding in */
+    /* Add margin/padding if needed for spacing */
+}
+
+.title-line {
+    display: inline-block;
+    /* Needed for transform */
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    /* Responsive font size */
+    color: #132a4a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #375a7f;
+    /* Slightly lighter dark blue */
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    margin-bottom: 30px;
+}
+
+.hero-reviews {
+    /* Style the review section if needed */
+}
+
+.stars {
+    font-size: 2rem;
+    color: #ffd700;
+    /* Gold */
+    margin-bottom: 10px;
+    /* Space below stars */
+}
+
+
+/* Placeholder Sections */
+
+.placeholder-section {
+    /* remove this class */
+}
+
+
+/* Partners Section */
+
+.partners-section {
+    padding: 40px 0;
+    /* Reduced padding */
+    background-color: #ffffff;
+    /* White background */
+    border-top: 1px solid #d1eaf4;
+    border-bottom: 1px solid #d1eaf4;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    /* Slightly smaller title */
+    color: #132a4a;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.partner-logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 140px;
+}
+
+.partner-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Specific Size Adjustments */
+
+a.partner-logo[href*="draftkings.com"] img {
+    max-width: 75%;
+    /* Make DK noticeably smaller within its container */
+}
+
+a.partner-logo[href*="fndl.co"] img {
+    max-width: 85%;
+    /* Make FD slightly smaller within its container */
+}
+
+.partner-logo:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+/* Footer */
+
+.footer {
+    padding: 40px 20px;
+    background-color: #132a4a;
+    /* Dark blue */
+    color: #e0f2f7;
+    /* Light icy blue */
+    text-align: center;
+}
+
+
+/* Section Title Variations */
+
+.section-title.alt {
+    color: #375a7f;
+    /* Slightly muted color */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+
+/* General Section Subheading */
+
+.section-subheading {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Success Metrics Section */
+
+.success-metrics-section {
+    padding: 60px 20px;
+    background-color: #f8fbfd;
+    /* Very light off-white */
+    text-align: center;
+    background-color: #f8fbfd;
+    /* Very light off-white */
+}
+
+
+/* Winning Tickets Section */
+
+.winning-tickets-section {
+    padding: 60px 0;
+    /* Remove side padding */
+    background-color: #ffffff;
+    overflow: hidden;
+    /* Important for horizontal scroll */
+    background-color: #ffffff;
+    /* Very light off-white */
+}
+
+.winning-tickets-section .section-title {
+    padding: 0 20px;
+    /* Add padding back for title */
+}
+
+.ticket-gallery-wrapper {
+    position: relative;
+    padding: 20px 0;
+    cursor: grab;
+    overflow: hidden;
+}
+
+.ticket-gallery-wrapper:active {
+    cursor: grabbing;
+}
+
+.ticket-gallery {
+    display: flex;
+    width: max-content;
+    /* Allow content to determine width */
+}
+
+.ticket-row {
+    display: flex;
+    /* GSAP will handle animation */
+}
+
+.ticket-row img {
+    height: 400px;
+    /* Adjust height as needed */
+    width: auto;
+    margin: 0 10px;
+    /* Spacing between tickets */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+    /* Prevent interaction during scroll/drag */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Research & Teamwork Section */
+
+.research-teamwork-section {
+    padding: 80px 20px;
+    background-color: #e0f2f7;
+    /* Back to light icy blue */
+    text-align: center;
+    background-color: #e0f2f7;
+    /* Back to light icy blue */
+}
+
+.research-text {
+    margin-bottom: 40px;
+}
+
+.teamwork-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.phone-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    /* Adjust max width */
+    margin: 0 auto;
+}
+
+.discord-ipad {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+.discord-phone {
+    position: absolute;
+    width: 30%;
+    /* Adjust size */
+    right: -2%;
+    /* Adjust overlap */
+    bottom: -5%;
+    /* Adjust vertical overlap */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.teamwork-text {
+    margin-top: 20px;
+}
+
+.teamwork-heading {
+    font-size: 1.8rem;
+    color: #132a4a;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.teamwork-subheading {
+    font-size: 1.1rem;
+    color: #375a7f;
+}
+
+
+/* Pricing Plans Section */
+
+.pricing-plans-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+    background-color: #ffffff;
+    /* Very light off-white */
+}
+
+.section-logo {
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.pricing-cards-container {
+    display: grid;
+    gap: 25px;
+    margin-top: 40px;
+    justify-content: center;
+    /* Default: 5 columns for wide screens */
+    grid-template-columns: repeat(5, minmax(240px, 1fr));
+}
+
+
+/* Media Query 1: Screens where 5 wide might be tight -> 3 columns */
+
+@media (max-width: 1500px) {
+    /* Adjust breakpoint based on testing */
+    .pricing-cards-container {
+        grid-template-columns: repeat(3, minmax(240px, 1fr));
+    }
+}
+
+
+/* Media Query 2: Smaller screens -> 2 columns */
+
+@media (max-width: 992px) {
+    /* Example breakpoint */
+    .pricing-cards-container {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+}
+
+
+/* Media Query 3: Mobile -> 1 column */
+
+@media (max-width: 768px) {
+    .pricing-cards-container {
+        grid-template-columns: minmax(240px, 1fr);
+        /* Single column */
+        gap: 20px;
+        padding: 0 10px;
+        /* Add slight padding so cards aren't edge-to-edge */
+    }
+    .pricing-card {
+        /* No specific width needed, grid handles it */
+    }
+    .partners-logos {
+        gap: 25px;
+        /* Reduce gap on mobile */
+    }
+    .partner-logo {
+        height: 45px;
+        /* Slightly smaller logo container on mobile */
+        width: 110px;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        /* Add missing background/padding for dropdown */
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+        /* Adjust gap for vertical layout */
+        flex-direction: column;
+        /* Stack links vertically */
+    }
+    .nav-links.active {
+        /* Style for when menu is open */
+        display: flex;
+    }
+    .nav-cta {
+        display: none;
+        /* Hide desktop CTA */
+    }
+    .mobile-menu-toggle {
+        display: block;
+        /* Make hamburger button visible */
+    }
+    /* Adjust other mobile styles as needed */
+    .hero-title {
+        font-size: 2rem;
+        /* Adjust hero title size */
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .ticket-row img {
+        height: 250px;
+        /* Smaller ticket images */
+    }
+    .review-slide {
+        width: 280px;
+        /* Adjust review slide width */
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        /* Stack footer columns */
+        text-align: center;
+    }
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}
+
+.pricing-card {
+    /* Remove flex: 0 0 auto; and width: 260px; Grid handles sizing */
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+    border: 2px solid #00a5ff;
+    /* Use primary blue for featured border */
+    transform: scale(1.03);
+    /* Slightly larger */
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.03) translateY(-8px);
+    /* Combine hover effect */
+}
+
+.plan-name {
+    font-size: 1.4rem;
+    color: #132a4a;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.plan-price {
+    font-size: 2.2rem;
+    color: #132a4a;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.plan-price .highlight-gradient {
+    background: linear-gradient(to right, #ff3366, #00a5ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.plan-rate {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left;
+    flex-grow: 1;
+    /* Allow features list to grow */
+}
+
+.plan-features li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #444;
+    position: relative;
+    padding-left: 20px;
+}
+
+.plan-features li::before {
+    content: '✔️';
+    /* Checkmark */
+    color: #00a5ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+    /* Push button to bottom */
+}
+
+
+/* Community Reviews Section */
+
+.community-reviews-section {
+    padding: 80px 0;
+    background-color: #f8fbfd;
+    overflow: hidden;
+    background-color: #f8fbfd;
+    /* Very light off-white */
+}
+
+.community-reviews-section .container {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.community-reviews-section .section-title {
+    padding: 0 20px;
+}
+
+.reviews-slider-wrapper {
+    position: relative;
+    padding: 20px 0;
+    cursor: grab;
+    overflow: hidden;
+}
+
+.reviews-slider-wrapper:active {
+    cursor: grabbing;
+}
+
+.reviews-slider {
+    display: flex;
+    width: max-content;
+}
+
+.review-row {
+    display: flex;
+    /* GSAP handles animation */
+}
+
+.review-slide {
+    flex: 0 0 auto;
+    /* Prevent shrinking */
+    width: 350px;
+    /* Fixed width for slides */
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    margin: 0 15px;
+    /* Spacing */
+    display: flex;
+    flex-direction: column;
+}
+
+.review-slide p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+.review-slide span {
+    font-size: 0.9rem;
+    color: #00a5ff;
+    /* Blue for reviewer name */
+    font-weight: bold;
+    margin-top: auto;
+}
+
+
+/* Footer */
+
+
+/* Enhanced Footer Styles */
+
+.footer {
+    background: linear-gradient(to bottom, #1a3f66, #132a4a);
+    /* Dark blue gradient */
+    color: #cce0ff;
+    /* Lighter blue text */
+    padding: 50px 20px 30px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Adjust minmax */
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-social h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    /* White headings */
+    font-weight: 600;
+}
+
+.footer-about p {
+    font-size: 0.85rem;
+    color: #a8c5e5;
+    /* Muted text color */
+}
+
+.footer-about strong {
+    color: #ffffff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #a8c5e5;
+    text-decoration: none;
+    transition: color 0.3s, padding-left 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow icons to wrap */
+    gap: 15px;
+}
+
+.social-icons a img {
+    width: 35px;
+    /* Slightly larger icons */
+    height: 35px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(50%) opacity(0.8);
+    /* Muted effect */
+}
+
+.social-icons a:hover img {
+    transform: scale(1.15);
+    filter: grayscale(0%) opacity(1);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #2a4f7a;
+    /* Slightly lighter border */
+    padding-top: 20px;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #a8c5e5;
+}
+
+.footer-about .footer-logo {
+    max-height: 50px;
+    /* Control footer logo size */
+    width: auto;
+    margin-bottom: 15px;
+}
+
+
+/* Drag Indicator */
+
+.drag-indicator {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transform: none;
+    background-color: #ff3366;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: nudge 1.8s infinite ease-in-out;
+}
+
+@keyframes nudge {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+
+/* Ensure stacking context and visibility */
+
+main {
+    position: relative;
+    overflow: visible;
+}
+
+.scroll-section {
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+}
+
+
+/* Need to explicitly set backgrounds for sections involved */
+
+.success-metrics-section {
+    background-color: #f8fbfd;
+}
+
+.winning-tickets-section {
+    background-color: #ffffff;
+}
+
+.research-teamwork-section {
+    background-color: #e0f2f7;
+}
+
+.pricing-plans-section {
+    background-color: #ffffff;
+}
+
+.community-reviews-section {
+    background-color: #f8fbfd;
+}
+
+.community-reviews-section {
+    background-color: #f8fbfd;
+}
+
+.community-reviews-section {
+    background-color: #f8fbfd;
+}
+
+.community-reviews-section {
+    background-color: #f8fbfd;
+}
+
+
+/* Styling for Legal Page Content Area */
+
+.legal-content-main {
+    max-width: 850px;
+    /* Container width */
+    margin: 40px auto;
+    /* Top/bottom margin, centered horizontally */
+    padding: 40px 50px;
+    /* Padding inside container */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.legal-content-main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #132a4a;
+}
+
+.legal-content-main h2 {
+    color: #007acc;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d1eaf4;
+    padding-bottom: 8px;
+}
+
+.legal-content-main p,
+.legal-content-main li {
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.legal-content-main ul,
+.legal-content-main ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.legal-content-main a {
+    color: #00a5ff;
+    text-decoration: none;
+}
+
+.legal-content-main a:hover {
+    text-decoration: underline;
+}
+
+.legal-content-main strong {
+    font-weight: 600;
+}

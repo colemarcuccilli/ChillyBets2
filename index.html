@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilly Bets - Ice Cold Picks</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include GSAP Core, ScrollTrigger, Draggable, ScrollTo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader">
+        <img src="assets/logos/chillybetslogo.png" alt="Loading..." class="loader-logo">
+    </div>
+
+    <header class="header">
+        <nav class="navbar container">
+            <div class="nav-left">
+                <a href="#home" class="nav-logo-link">
+                    <img src="assets/logos/chillybetslogo.png" alt="Chilly Bets Logo" class="nav-logo">
+                </a>
+                <!-- Optional: Add Title back if needed -->
+                <!-- <span class="nav-title">Chilly Bets</span> -->
+            </div>
+            <ul class="nav-links">
+                <li><a href="#winning-tickets">Testimonials</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+            <a href="https://dubclub.win/r/p/pri-zwszu/" target="_blank" class="btn btn-primary nav-cta">Join Premium</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-background">
+                <!-- Snowflakes will be dynamically added by JS -->
+            </div>
+            <div class="hero-content container">
+                <h1 class="hero-title">
+                    Discover the Winning Plays <br> That Turned Losing Bettors<br> into the <span class="highlight-pink">Top 1%</span> of Sports Winners.
+                </h1>
+                <p class="hero-subtitle">
+                    Join Chilly Bets for as low as <span class="highlight-blue">$25</span>.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://dubclub.win/r/p/pri-zwszu/" target="_blank" class="btn btn-primary">Join Premium</a>
+                    <a href="#pricing" class="btn btn-secondary">View Plans</a>
+                </div>
+                <div class="hero-reviews">
+                    <div class="stars">★★★★★</div>
+                    <!-- Optional: Add review text link if needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Official Partners Section -->
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="section-title">Official Partners</h2>
+                <div class="partners-logos">
+                    <a href="https://dubclub.win/r/p/pri-zwszu/" target="_blank" class="partner-logo" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/logos/dubclub-icon.png" alt="DubClub Logo">
+                    </a>
+                    <a href="https://discord.gg/DJbqNbcw" target="_blank" class="partner-logo" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/logos/discord-icon.png" alt="Discord Logo">
+                    </a>
+                    <a href="https://fndl.co/a75htph" target="_blank" class="partner-logo" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/logos/fanduel-icon.png" alt="FanDuel Logo">
+                    </a>
+                    <a href="https://myaccount.draftkings.com/signup?product=sportsbook&referrer=deangio1414&wpcid=928318922&wpsrc=Sportsbook%20Standard%20Refer-A-Friend&waffn=deangio1414" target="_blank" class="partner-logo" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/logos/draftkings-icon.png" alt="DraftKings Logo">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Metrics Section -->
+        <section class="success-metrics-section scroll-section">
+            <div class="container">
+                <h2 class="section-title alt">Over 10,000 Success Stories</h2>
+                <p class="section-subheading">
+                    Over <span class="highlight-pink">$2,000,000</span> of earnings from <span class="highlight-blue">premium members</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- Winning Tickets Section -->
+        <section id="winning-tickets" class="winning-tickets-section scroll-section">
+            <div class="container">
+                <h2 class="section-title">Winning Tickets</h2>
+            </div>
+            <div class="ticket-gallery-wrapper">
+                <div class="drag-indicator"><span>➔</span></div>
+                <div class="ticket-gallery">
+                    <div class="ticket-row">
+                        <!-- Row 1 Images -->
+                        <img src="assets/images/winning-slip2.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip3.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip4.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip9.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip10.PNG" alt="Winning Ticket">
+                        <img src="assets/images/IMG_0844.PNG" alt="Winning Ticket">
+                        <img src="assets/images/IMG_0845.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_0846.PNG" alt="Winning Ticket">
+                        <img src="assets/images/IMG_0847.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_1896.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_2087.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_4992.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_4993.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_4994.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_4995.jpg" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip5.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip6.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip7.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip8.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip11.PNG" alt="Winning Ticket">
+                        <img src="assets/images/winning-slip12.PNG" alt="Winning Ticket">
+                        <img src="assets/images/IMG_5774.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6732.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_7046.PNG" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6791.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6813.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6821.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6843.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6845.jpg" alt="Winning Ticket">
+                        <img src="assets/images/IMG_6860.JPG" alt="Winning Ticket">
+                        <!-- Removed duplicate IMG_7046.PNG -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Teamwork Section -->
+        <section id="features" class="research-teamwork-section scroll-section">
+            <div class="container">
+                <div class="research-text">
+                    <h2 class="section-title alt">All the Research is Done for You.</h2>
+                    <p class="section-subheading">Become a <strong class="highlight-pink">smart sports bettor</strong>.</p>
+                </div>
+                <div class="teamwork-content">
+                    <div class="phone-container">
+                        <img src="assets/images/discord-ipad2.png" alt="Discord Interface Background" class="discord-ipad">
+                        <img src="assets/images/discord-iphone.png" alt="Discord Interface" class="discord-phone">
+                    </div>
+                    <div class="teamwork-text">
+                        <h3 class="teamwork-heading">We Bet as a Team</h3>
+                        <p class="teamwork-subheading">We take on the risk with you every day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Plans Section -->
+        <section id="pricing" class="pricing-plans-section scroll-section">
+            <div class="container">
+                <img src="assets/logos/chillybetslogo.png" alt="Logo" class="section-logo">
+                <h2 class="section-title">Get Secured Chilly Bets Plans</h2>
+                <p class="section-subheading highlight-blue">Which plan is right for you?</p>
+                <div class="pricing-cards-container">
+                    <!-- Pricing Card 1: 1 Week -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">1 Week</h3>
+                        <p class="plan-price">$25.00</p>
+                        <p class="plan-rate">$3.57/day</p>
+                        <ul class="plan-features">
+                            <li>Daily Premium Picks</li>
+                            <li>Extensive Analysis</li>
+                            <li>Discord Community Access</li>
+                        </ul>
+                        <a href="https://dubclub.win/r/p/pri-pdnr5/?checkout=1&coupon=WebsiteWeek" target="_blank" class="btn btn-secondary">Join Weekly</a>
+                    </div>
+                    <!-- Pricing Card 2: 1 Month (Featured) -->
+                    <div class="pricing-card featured">
+                        <h3 class="plan-name">1 Month</h3>
+                        <p class="plan-price"><span class="highlight-gradient">$50.00</span></p>
+                        <p class="plan-rate"><span class="highlight-blue">$1.67</span>/day</p>
+                        <ul class="plan-features">
+                            <li>Daily Premium Picks</li>
+                            <li>Extensive Analysis</li>
+                            <li>Discord Community Access</li>
+                            <li>Professional Bankroll Management</li>
+                        </ul>
+                        <a href="https://dubclub.win/r/p/pri-c85v3/?checkout=1&coupon=WebsiteMonth" target="_blank" class="btn btn-primary">Join Monthly</a>
+                    </div>
+                    <!-- Pricing Card 3: 3 Months -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">3 Months</h3>
+                        <p class="plan-price">$140.00</p>
+                        <p class="plan-rate">$1.56/day</p>
+                        <ul class="plan-features">
+                            <li>Daily Premium Picks</li>
+                            <li>Extensive Analysis</li>
+                            <li>Discord Community Access</li>
+                            <li>Player Props & Longshots</li>
+                        </ul>
+                        <a href="https://dubclub.win/r/p/pri-yp2r6/?checkout=1&coupon=Website3month" target="_blank" class="btn btn-secondary">Join 3 Months</a>
+                    </div>
+                    <!-- Pricing Card 4: 6 Months -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">6 Months</h3>
+                        <p class="plan-price">$250.00</p>
+                        <p class="plan-rate">$1.39/day</p>
+                        <ul class="plan-features">
+                            <li>Daily Premium Picks</li>
+                            <li>Extensive Analysis</li>
+                            <li>Discord Community Access</li>
+                            <li>Player Props & Longshots</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="https://dubclub.win/r/p/pri-vfdjj/?checkout=1&coupon=website6month" target="_blank" class="btn btn-secondary">Join 6 Months</a>
+                    </div>
+                    <!-- Pricing Card 5: 1 Year -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name">1 Year</h3>
+                        <p class="plan-price">$500.00</p>
+                        <p class="plan-rate">$1.37/day</p>
+                        <ul class="plan-features">
+                            <li>Daily Premium Picks</li>
+                            <li>Extensive Analysis</li>
+                            <li>Premium Discord Access</li>
+                            <li>VIP 1-on-1 Support</li>
+                            <li>20% Discount Applied</li>
+                        </ul>
+                        <a href="https://dubclub.win/r/p/pri-7nv2p/?checkout=1&coupon=website1year" target="_blank" class="btn btn-secondary">Join Yearly</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Reviews Section -->
+        <section id="reviews" class="community-reviews-section scroll-section">
+            <div class="container">
+                <h2 class="section-title alt">Most Reviews in the World for Any Sports Bettor Community.</h2>
+                <p class="section-subheading">The community has spoken.</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="reviews-slider-wrapper">
+                <div class="drag-indicator"><span>➔</span></div>
+                <div class="reviews-slider">
+                    <div class="review-row">
+                        <!-- Reviews -->
+                        <div class="review-slide">
+                            <p>"Chilly Bets completely changed my approach..."</p><span>- Alex M.</span></div>
+                        <div class="review-slide">
+                            <p>"Made my money back in just a week..."</p><span>- Sarah T.</span></div>
+                        <div class="review-slide">
+                            <p>"The community in Discord is supportive..."</p><span>- James R.</span></div>
+                        <div class="review-slide">
+                            <p>"Best sports betting service out there..."</p><span>- Emily B.</span></div>
+                        <div class="review-slide">
+                            <p>"The service is affordable and has helped..."</p><span>- Michael H.</span></div>
+                        <div class="review-slide">
+                            <p>"I wish I had joined Chilly Bets sooner..."</p><span>- Rebecca L.</span></div>
+                        <div class="review-slide">
+                            <p>"Chilly Bets turned my hobby into a serious..."</p><span>- Daniel K.</span></div>
+                        <div class="review-slide">
+                            <p>"I've tried other services, but none compare..."</p><span>- Vanessa G.</span></div>
+                        <div class="review-slide">
+                            <p>"Their strategies are simple to follow..."</p><span>- Chris L.</span></div>
+                        <div class="review-slide">
+                            <p>"I love the detailed breakdown of every pick..."</p><span>- Olivia P.</span></div>
+                        <div class="review-slide">
+                            <p>"Consistent profits and incredible customer support..."</p><span>- Ethan W.</span></div>
+                        <div class="review-slide">
+                            <p>"I was skeptical at first, but now I'm a believer..."</p><span>- Samantha J.</span></div>
+                        <div class="review-slide">
+                            <p>"Joining Chilly Bets was the best decision..."</p><span>- Ryan T.</span></div>
+                        <div class="review-slide">
+                            <p>"Their success rate is impressive..."</p><span>- Jennifer C.</span></div>
+                        <div class="review-slide">
+                            <p>"Chilly Bets doesn't just give picks, they teach..."</p><span>- Mark S.</span></div>
+                        <div class="review-slide">
+                            <p>"The combination of analytics and community..."</p><span>- Laura D.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-content">
+                <!-- Left: Company Info -->
+                <div class="footer-about">
+                    <img src="assets/logos/chillybetslogo.png" alt="Chilly Bets Logo" class="footer-logo">
+                    <h3>About Chilly Bets</h3>
+                    <p>This service is meant for entertainment purposes only. If you or someone you know has a <strong>GAMBLING problem</strong> and wants help, call <strong>1-800-GAMBLER</strong>. Chilly Bets is intended for adult users that are <strong>18+</strong>                        only.</p>
+                </div>
+                <!-- Center: Navigation Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#winning-tickets">Testimonials</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="TOS.html">Terms of Use</a></li>
+                        <li><a href="PP.html">Privacy Policy</a></li>
+                        <li><a href="purchase-agreement.html">TOP Agreement</a></li>
+                    </ul>
+                </div>
+                <!-- Right: Social Links -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/Chilly_Bets" target="_blank" aria-label="Instagram"><img src="assets/logos/instagram-icon.png" alt="Instagram"></a>
+                        <a href="https://x.com/ChillyBets" target="_blank" aria-label="X"><img src="assets/logos/X-icon.png" alt="X"></a>
+                        <a href="https://discord.com/invite/DJbqNbcw" target="_blank" aria-label="Discord"><img src="assets/logos/discord-icon2.png" alt="Discord"></a>
+                        <a href="https://www.tiktok.com/@chillybets" target="_blank" aria-label="TikTok"><img src="assets/logos/tiktok-icon.png" alt="TikTok"></a>
+                        <a href="https://fndl.co/a75htph" target="_blank"><img src="assets/logos/FD.PNG" alt="FanDuel Logo"></a>
+                        <a href="https://myaccount.draftkings.com/signup?product=sportsbook&referrer=deangio1414&wpcid=928318922&wpsrc=Sportsbook%20Standard%20Refer-A-Friend&waffn=deangio1414" target="_blank"><img src="assets/logos/DK-icon.PNG" alt="DraftKings Logo"></a>
+                        <a href="https://dubclub.win/r/p/pri-zwszu/" target="_blank"><img src="assets/logos/dubclub-icon.png" alt="DubClub Logo"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Section: Copyright -->
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 ChillyBets Corp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link our custom JS file -->
+    <script src="app.js"></script>
+</body>
+
+</html>
