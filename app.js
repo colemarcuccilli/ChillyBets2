@@ -239,34 +239,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Loader Animation --- 
     const loader = document.querySelector('.loader');
     const loaderLogo = document.querySelector('.loader-logo');
+    const loaderWipe = document.querySelector('.loader-wipe'); // Select the wipe element
 
-    if (loader && loaderLogo) {
-        // Initial state (optional, CSS handles opacity 0)
-        gsap.set(loaderLogo, { scale: 0.5 });
+    if (loader && loaderLogo && loaderWipe) { // Check for wipe element too
+        gsap.set(loaderLogo, { opacity: 0 });
 
-        const loaderTl = gsap.timeline();
+        // --- WIPE REVEAL TIMELINE --- 
+        const loaderTl = gsap.timeline({
+            paused: true,
+            onComplete: () => {
+                loader.style.display = 'none';
+                document.body.classList.add('loaded');
+            }
+        });
+
         loaderTl
-            .to(loaderLogo, { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" })
-            .to(loaderLogo, { rotation: 360, duration: 1.5, ease: "power1.inOut" }, "-=0.5") // Spin
-            .to(loaderLogo, { scale: 50, opacity: 0, duration: 1, ease: "power2.in" }, "-=0.7"); // Grow and fade
+        // 1. Fade logo in
+            .to(loaderLogo, { opacity: 1, duration: 0.8, ease: "power1.inOut" })
+            // 2. Wipe animation - move wipe element out of view
+            .to(loaderWipe, {
+                xPercent: 100, // Move 100% to the right
+                duration: 1.2,
+                ease: "power2.inOut"
+            }, "+=0.3") // Start wipe shortly after logo fade-in completes
+            // 3. Fade logo out *during* the wipe
+            .to(loaderLogo, {
+                opacity: 0,
+                duration: 0.6,
+                ease: "power1.in"
+            }, "-=0.8"); // Start logo fade-out partway through the wipe
 
-        // Hide loader when window (including images) is fully loaded
+        // Hide loader when window is fully loaded
         window.onload = () => {
-            loaderTl.play(); // Start animation now
-
-            // Add a slight delay after animation finishes before hiding loader 
-            // and restoring scroll. Adjust delay as needed.
-            gsap.delayedCall(loaderTl.duration() - 0.3, () => {
-                gsap.to(loader, {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => {
-                        loader.style.display = 'none'; // Hide completely
-                        document.body.classList.add('loaded'); // Restore scrollbar
-                    }
-                });
-            });
+            console.log("Window fully loaded, playing loader wipe animation.");
+            loaderTl.play();
         };
+
+    } else {
+        console.error("Loader elements (loader, logo, or wipe) not found! Enabling scroll immediately.");
+        document.body.classList.add('loaded');
     }
 });
 

@@ -36,8 +36,8 @@ body.loaded {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #132a4a;
-    /* Dark blue background */
+    background-color: transparent;
+    /* Make base loader transparent */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +48,8 @@ body.loaded {
     opacity: 1;
     transition: opacity 0.5s ease-out;
     /* Fade out transition */
+    overflow: hidden;
+    /* Keep wipe contained */
 }
 
 .loader.hidden {
@@ -55,13 +57,26 @@ body.loaded {
     pointer-events: none;
 }
 
+.loader-wipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #132a4a;
+    /* Dark blue wipe color */
+    z-index: 1;
+    /* Below logo but above loader base */
+    /* GSAP will animate transform */
+    transform: translateX(0%);
+}
+
 .loader-logo {
     max-width: 200px;
-    /* Adjust size as needed */
     width: 50%;
     opacity: 0;
-    /* Start hidden for animation */
-    /* GSAP will handle animation */
+    z-index: 2;
+    /* Ensure logo is above the wipe */
 }
 
 
